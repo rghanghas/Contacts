@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function ContactForm({ onSubmit }) {
   const [formData, setFormData] = useState({
-    firstName: '', lastName: '', email: '', phoneNumber: ''
+    firstName: '', lastName: '', email: '', phone: ''
   });
   
   const handleChange = (e) => {
@@ -32,8 +32,8 @@ function ContactForm({ onSubmit }) {
           <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
         </div>
         <div className="form-group">
-          <label htmlFor="phoneNumber">Phone Number</label>
-          <input type="tel" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required />
+          <label htmlFor="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
         </div>
         <div className="form-actions">
           <button type="submit">Save Contact</button>

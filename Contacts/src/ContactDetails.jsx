@@ -18,7 +18,7 @@ function ContactDetails({ contact }) {
       </div>
       <div className="detail-item">
         <label>Phone:</label>
-        <span>{contact.phoneNumber}</span>
+        <span>{contact.phone}</span>
       </div>
     </div>
   );
