@@ -21,14 +21,18 @@ public class Contact {
     @Column (name = "phone_number")
     private String phone;
 
+    @Column(name = "user_id")
+    private int userId;
+
     public Contact() {
     }
 
-    public Contact(String firstName, String lastName, String email, String phone) {
+    public Contact(String firstName, String lastName, String email, String phone, int userId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -69,6 +73,14 @@ public class Contact {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
 }

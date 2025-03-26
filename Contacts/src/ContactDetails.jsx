@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ContactDetails({ contact }) {
+function ContactDetails({ contact, onEdit, onDelete }) {
   return (
     <div className="contact-details">
       <h2>Contact Details</h2>
@@ -19,6 +19,10 @@ function ContactDetails({ contact }) {
       <div className="detail-item">
         <label>Phone:</label>
         <span>{contact.phone}</span>
+      </div>
+      <div className="action-buttons">
+        <button className="edit-button" onClick={onEdit}>Edit</button>
+        <button class="delete-button" onClick={onDelete}>Delete</button>
       </div>
     </div>
   );

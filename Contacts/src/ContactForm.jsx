@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-function ContactForm({ onSubmit }) {
+function ContactForm({ onSubmit, initialData, formTitle }) {
   const [formData, setFormData] = useState({
     firstName: '', lastName: '', email: '', phone: ''
   });
+
+  useEffect(() => {
+    if(initialData) {
+      setFormData(initialData);
+    } else {
+      setFormData({firstName: '', lastName: '', email: '', phone: ''});
+    }
+  }, [initialData]);
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +25,7 @@ function ContactForm({ onSubmit }) {
   
   return (
     <div className="contact-form">
-      <h2>Add New Contact</h2>
+      <h2>{formTitle}</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="firstName">First Name</label>

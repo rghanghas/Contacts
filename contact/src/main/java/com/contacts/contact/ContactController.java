@@ -3,7 +3,6 @@ package com.contacts.contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/contacts")
@@ -13,15 +12,9 @@ public class ContactController {
     @Autowired
     ContactRepository contactrepo;
 
-    @GetMapping
-    public List<Contact> getAllContacts() {
-        return contactrepo.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public Contact getContactById(@PathVariable Integer id) {
-        Optional<Contact> contact = contactrepo.findById(id);
-        return contact.get();
+    @GetMapping("/{userId}")
+    public List<Contact> getContactsByUserId(@PathVariable Integer userId) {
+        return contactrepo.findByUserId(userId);
     }
 
     @PostMapping
@@ -29,4 +22,13 @@ public class ContactController {
         return contactrepo.save(contact);
     }
 
+    @PutMapping
+    public Contact updateContact(@RequestBody Contact contact) {
+        return contactrepo.save(contact);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteContact(@PathVariable Integer id) {
+        contactrepo.deleteById(id);
+    }
 }
